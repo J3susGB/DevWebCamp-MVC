@@ -1,0 +1,32 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.navegacion {
+    display: flex;
+    flex-direction: column;
+    @include m.desktop{
+        flex-direction: row;
+    }
+    &__enlace {
+        color: v.$blanco;
+        @include m.texto-fluido(0.5rem, 1.2rem);
+        text-align: center;
+        @include m.tablet {
+            @include m.texto-fluido(0.6rem, 1.4rem);
+        }
+        @include m.desktop {
+            @include m.texto-fluido(0.9rem, 1.8rem);
+        }
+        // font-size: 2.2rem;
+        padding: 1.5rem;
+        font-weight: v.$black;
+        text-transform: uppercase;
+        transition: 200ms background-color ease-in-out, 300ms color ease-in-out;
+
+        &--actual,
+        &:hover {
+            background-color: v.$blanco;
+            color: v.$azul;
+        }
+    }
+}
